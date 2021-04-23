@@ -10,7 +10,7 @@ object BatchEnrichment extends SparkAppConfig with HadoopClientConfig {
 
   /**
    * IMPORTANT NOTE:
-   * Follow similar kind of approach of riding the data from HDFS in real project and in the
+   * Follow similar kind of approach of reading the data from HDFS in real project and in the
    * professional level it is good for learning level project.
    * But I should not follow different kind of approach like this, advised to follow a single one.
    */
