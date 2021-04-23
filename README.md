@@ -16,3 +16,6 @@ We get the information of STM every day and need to run an ETL pipeline to enric
 analysis purpose in real-time. Data is split in two
   1. A set of tables that build dimension (batch style)
   2. Stop times that needed to be enriched for analysis and reporting (streaming)
+
+<img width="869" alt="image" src="https://user-images.githubusercontent.com/45977153/115934549-41ef9200-a45f-11eb-8a82-4cef27396fc5.png">
+<img width="869" alt="image" src="https://user-images.githubusercontent.com/45977153/115934568-4e73ea80-a45f-11eb-95a9-8be94dc3f054.png">
