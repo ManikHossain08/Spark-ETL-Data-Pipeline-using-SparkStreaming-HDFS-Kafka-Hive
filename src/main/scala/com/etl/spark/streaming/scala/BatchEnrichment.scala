@@ -8,17 +8,26 @@ object BatchEnrichment extends SparkAppConfig with HadoopClientConfig {
 
   import spark.implicits._
 
+  /**
+   * IMPORTANT NOTE:
+   * Follow similar kind of approach of riding the data from HDFS in real project and in the
+   * professional level it is good for learning level project.
+   * But I should not follow different kind of approach like this, advised to follow a single one.
+   */
   val rawTrips: RDD[String] = spark.sparkContext.textFile(s"$stagingDir/trips/trips.txt")
   val tripsRdd: RDD[Trip] = rawTrips.filter(!_.contains("trip_id")).map(Trip(_))
   val tripsDF: DataFrame = tripsRdd.toDF()
   tripsDF.createOrReplaceTempView("tblTrip")
 
   val routesDF: DataFrame = spark.read
+    .option("header", "true")
     .schema(Route.routeSchema)
     .csv(s"$stagingDir/routes/routes.txt")
+    .select("routeId", "routeLongName", "routeColor")
   routesDF.createOrReplaceTempView("tblRoute")
 
   val calendarDatesDF: DataFrame = spark.read
+    .option("header", "true")
     .schema(CalendarDate.calDateSchema)
     .csv(s"$stagingDir/calendar_dates/calendar_dates.txt")
   calendarDatesDF.createOrReplaceTempView("tblCalDate")

@@ -7,8 +7,10 @@ scalaVersion := "2.11.8"
 val sparkVersion = "2.4.4"
 val kafkaVersion = "2.3.1"
 
-// Hadoop-hdfs & kafka-clients will be already there if I install the spark, so don't need to add these
-// library additionally
+/*
+ NOTE: Hadoop-hdfs & kafka-clients will be already there if I install the spark, so don't need to add these
+ library additionally
+ */
 libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-core" % sparkVersion % "provided",
   "org.apache.spark" %% "spark-sql"% sparkVersion % "provided",
@@ -18,8 +20,8 @@ libraryDependencies ++= Seq(
 
 /*
 NOTE: FOR CREATING THE EXTERNAL TABLE ext_enriched_stop_time WITH PARTITION
-WE USE THIS QUERY AND "MSCK REPAIR TABLE ext_enriched_stop_time" COMMAND TO
-UPDATE THE METADATA AFTER SAVING THE DATA FROM THE SCALA APPLICATION.
+I USE THIS QUERY AND "MSCK REPAIR TABLE ext_enriched_stop_time" COMMAND TO
+UPDATE THE METADATA AFTER SAVING THE DATA FROM THE SCALA APPLICATION to HDFS data warehouse.
 
 QUERY:
     CREATE external TABLE ext_enriched_stop_time (
