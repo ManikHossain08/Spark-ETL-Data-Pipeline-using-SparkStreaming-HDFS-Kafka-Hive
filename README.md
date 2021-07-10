@@ -2,11 +2,11 @@
 
 # OBJECTIVE
 The objectives of this project are to get experience of coding with:
-  • Spark
-  • Spark SQL
-  • Spark Streaming
-  • Kafka
-  • Scala and functional programming
+  - Spark
+  - Spark SQL
+  - Spark Streaming
+  - Kafka
+  - Scala and functional programming
 
 # DATA SET
 The data set is the one that you analyzed in Course 1 and it is STM GTFS data.
